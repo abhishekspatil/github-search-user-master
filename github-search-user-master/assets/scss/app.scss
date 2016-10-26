@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+// ----------------------------------------------
+// App - Imports
+// ----------------------------------------------
+
+// Variables
+// ----------------------------------------------
+@import "var";
+
+// Utils
+// ----------------------------------------------
+@import "utils/mixins";
+@import "component/reset";
+@import "utils/placeholder";
+@import "utils/helpers";
+
+// Component
+// ----------------------------------------------
+@import "component/type";
+@import "component/pagination";
+
+// Layout
+// ----------------------------------------------
+@import "layout/global";
+
+// Views
+// ----------------------------------------------
+@import "views/index";

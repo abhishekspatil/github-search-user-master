@@ -1,0 +1,28 @@
+// --------------------------------------------
+// Component - Type
+// --------------------------------------------
+a {
+  color: $c-default;
+  outline: none;
+  text-decoration: none;
+  @extend %u-transition-default;
+
+  &:hover {
+    color: $c-link;
+    outline: none;
+  }
+}
+
+strong { font-weight: 700; }
+
+p { margin: 0; }
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+li { list-style: none; }
+
+button { outline: none; }

@@ -1,0 +1,36 @@
+// --------------------------------------------
+// Utils - Placeholder
+// --------------------------------------------
+
+%u-align-left { text-align: left; }
+%u-align-center { text-align: center; }
+%u-align-right { text-align: right; }
+
+// Floats
+%u-clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after { clear: both; }
+}
+
+%u-pull-left { float: left; }
+%u-pull-right { float: right; }
+
+// Text
+%u-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// Effects
+%u-transition-default {
+  transition:
+    $default-transition-property
+    $default-transition-duration
+    $default-transition-function;
+}

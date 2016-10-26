@@ -1,0 +1,96 @@
+// --------------------------------------------
+// Utils - Mixins
+// --------------------------------------------
+
+// Breakpoint
+// --------------------------------------------
+
+// Usage:
+// @include breakpoint (min-width, 300px) {
+//   div { color:#000; }
+// }
+@mixin breakpoint($feature, $value) {
+  @if $mq-support == true {
+    @media #{$media} and ($feature: $value) {
+      @content;
+    }
+  }
+}
+
+// Border radius
+// --------------------------------------------
+
+// Usage:
+// .div {
+//   @include border-radius(30px, right);
+// }
+@mixin border-radius($radius, $pos) {
+  @if $pos == top {
+    border-top-right-radius: $radius;
+    border-top-left-radius: $radius;
+  }
+
+  @else if $pos == right {
+    border-bottom-right-radius: $radius;
+    border-top-right-radius: $radius;
+  }
+
+  @else if $pos == bottom {
+    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+  }
+
+  @else if $pos == left {
+    border-bottom-left-radius: $radius;
+    border-top-left-radius: $radius;
+  }
+}
+
+// Ellipsis
+// --------------------------------------------
+
+// Usage:
+// .text {
+//   @include ellipsis();
+// }
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Placeholder
+// --------------------------------------------
+
+// Usage:
+// .box {
+//   @include placeholder {
+//     font-size: 14px;
+//   };
+// }
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+}
+
+// Shapes
+// --------------------------------------------
+
+// Usage:
+// .box {
+//   @include square(20px);
+// }
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+// Usage:
+// .rounded {
+//   @include circle(20px);
+// }
+@mixin circle($size) {
+  @include square($size);
+  border-radius: 100%;
+}

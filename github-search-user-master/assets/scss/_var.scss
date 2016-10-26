@@ -1,0 +1,29 @@
+// --------------------------------------------
+// Config - Vars
+// --------------------------------------------
+
+// Configs
+$mq-support: true;
+$media: only screen;
+
+// Colors
+$c-blue: #4078c0;
+$c-gray: #A8A8A8;
+$c-gray-dark: #3c3c3c;
+$c-red: #8C1B1B;
+$c-green: #79d858;
+
+$c-default: $c-gray-dark;
+$c-link: $c-blue;
+$c-bg-body: white;
+
+// Font
+$f-default: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif', sans-serif;
+$f-size: 16px;
+$f-line-height: 24px;
+$f-weight: 400;
+
+// Transition
+$default-transition-property: all;
+$default-transition-duration: .08s;
+$default-transition-function: ease-in-out;

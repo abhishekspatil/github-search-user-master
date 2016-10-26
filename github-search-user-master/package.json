@@ -1,0 +1,54 @@
+{
+  "name": "github-search-user",
+  "version": "1.4.0",
+  "description": "A simple client-side app that lists GitHub repositories for a given user.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabrihellmateus/github-search-user"
+  },
+  "authors": {
+    "name": [
+      "Gabriel Mateus"
+    ],
+    "email": [
+      "me@gabrielmateus.com",
+      "naive505@gmail.com"
+    ]
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "karma start karma.conf.js --single-run",
+    "css:sass": "node-sass assets/scss/ -o build/assets/css/ --output-style=compressed --source-map=true",
+    "css:autoprefixer": "postcss -u autoprefixer -r assets/css/*.css",
+    "js:concat": "/bin/bash scripts/concat.sh",
+    "js:minify": "uglifyjs build/assets/js/app.js -o build/assets/js/app.min.js",
+    "watch:sass": "node-sass assets/scss/ -w -o assets/css/ --source-map=true",
+    "watch:test": "karma start karma.conf.js --auto-watch",
+    "clean": "rm -r build/* ",
+    "clean:temp": "rm build/*.bak build/tmp-index.html",
+    "build": "npm test && npm run clean && npm run build:js && npm run build:css && npm run build:html && npm run clean:temp",
+    "build:css": "mkdir -p build/assets/css && npm run css:sass && npm run css:autoprefixer",
+    "build:js": "mkdir -p build/assets/js && npm run js:concat && npm run js:minify",
+    "build:html": "/bin/bash scripts/html.sh && html-minifier --collapse-whitespace --remove-comments build/tmp-index.html -o build/index.html",
+    "deploy": "npm run build && cd build && git add --all && git commit -a -m \"Update gh-pages at v$npm_package_version\" && git push"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.8",
+    "autoprefixer": "^6.4.1",
+    "html-minifier": "^3.0.3",
+    "jasmine": "^2.4.1",
+    "karma": "^1.1.2",
+    "karma-jasmine": "^1.0.2",
+    "karma-mocha-reporter": "^2.1.0",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "node-watch": "^0.4.0",
+    "phantomjs-prebuilt": "^2.1.8",
+    "watch-cli": "^0.2.1"
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "jquery": "^3.1.0",
+    "node-sass": "^3.10.0",
+    "postcss-cli": "^2.6.0"
+  }
+}

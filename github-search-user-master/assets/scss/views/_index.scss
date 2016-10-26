@@ -1,0 +1,149 @@
+// --------------------------------------------
+// View - Index
+// --------------------------------------------
+
+// Header
+// ---------------------------------------------
+.github-wrapper {
+  position: relative;
+  margin: 60px auto 80px;
+  max-width: 740px;
+
+  @include breakpoint (max-width, 740px) {
+    padding: 0 20px;
+  }
+}
+
+.github-header { text-align: center; }
+
+.github-logo {
+  color: darken($c-default, 10%);
+  @include square(64px);
+}
+
+.github-loading { display: inline-block; }
+
+.github-form,
+.github-repo-list-header,
+.github-repo-stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.github-form { margin: 40px 0 0; }
+
+.github-search {
+  flex: 1;
+  margin: 0 4px 0 0;
+  padding: 12px;
+  font-size: 18px;
+  color: darken($c-default, 6%);
+  background-color: white;
+  border-radius: 3px;
+  font-weight: 700;
+  border: 1px solid lighten($c-gray, 10%);
+  @extend %u-transition-default;
+
+  &:focus {
+    border-color: $c-link;
+    outline: none;
+  }
+
+  @include placeholder {
+    color: lighten($c-gray, 10%);
+    font-weight: 400;
+  };
+}
+
+.github-submit {
+  padding: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
+  border-radius: 3px;
+  border: 1px solid #5ca941;
+  user-select: none;
+  background-image: linear-gradient(#8add6d, #60b044);
+  appearance: none;
+  @extend %u-transition-default;
+
+  &:hover,
+  &:focus {
+    border-color: #4a993e;
+    background-image: linear-gradient($c-green, #569e3d);
+  }
+}
+
+.github-validation {
+  margin-top: 10px;
+  color: $c-red;
+}
+
+// Repo list
+// ---------------------------------------------
+.github-repo-list-header {
+  @include breakpoint (max-width, 740px) {
+    display: block;
+    text-align: center;
+  }
+}
+
+.github-repo-list {
+  margin-top: 50px;
+
+  &.loading { opacity: .4; }
+}
+
+.github-repo-title { margin: 0; }
+
+.github-repo-item { margin: 60px 0; }
+
+.github-repo-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.github-repo-name {
+  margin: 0;
+
+  a {
+    color: $c-blue;
+    font-size: 20px;
+    padding-bottom: 1px;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      color: darken($c-blue, 16%);
+      border-color: darken($c-blue, 16%);
+    }
+  }
+}
+
+.github-repo-stat-item {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 16px;
+
+  svg {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+.github-repo-stats-star {
+  width: 18px;
+  height: 20px;
+}
+
+.github-repo-stats-fork {
+  width: 12px;
+  height: 18px;
+}
+
+.github-repo-update {
+  font-size: 14px;
+  color: lighten($c-default, 10%);
+}
